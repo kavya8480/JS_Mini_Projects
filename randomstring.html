@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    >
+</head>
+<body>
+    <div id="one" style="width: 1050px; height: 500px; border-radius: 2px solid black;background-color: blueviolet;
+    margin-left: 200px;display: flex; justify-content: center; align-items: center;">
+ <h2 id="display"> </h2>
+    </div>
+
+
+ <script>
+    const list=["Apple","Banana","Cherry","Mango","Orange"];
+    const color=["red","yellow","crimson","orange","darkorange"];
+
+
+    function showrandomstring(){
+        const randomIndex= Math.floor(Math.random()*list.length);
+        document.getElementById("display").innerText=list[randomIndex];
+       document.getElementById("one").style.backgroundColor=color[randomIndex];
+      
+    }
+
+    setInterval(showrandomstring,1000);
+    showrandomstring();
+//     setTimeout(()=>{
+//         let divv= document.getElementById("one")
+//         divv.style.backgroundColor="pink"
+//     },5000
+// ) ;
+ </script>
+
+</body>
+</html>

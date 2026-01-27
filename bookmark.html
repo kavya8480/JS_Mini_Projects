@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Storing bookmarks</h2>
+    <input type="text" placeholder="enter name" id="name"> <br> <br>
+    <input type="text" placeholder="enter url" id="url"> <br> <br>
+    <button type="submit" id="sub" style="color: cornflowerblue;" onclick="addbookmark()">Add Bookmarks</button>
+     <ul id="links"></ul>
+
+
+     
+    <script>
+       function addbookmark(){
+        let name= document.getElementById("name").value;
+        let url= document.getElementById("url").value;
+        let linklist=document.getElementById("links");
+
+        if (name=== "" || url=== ""){
+            alert("Please fill details...");
+            return ;
+        }
+        document.getElementById("sub").style.backgroundColor="pink";
+        
+}
+        
+
+    </script>
+</body>
+</html>

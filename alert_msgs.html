@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>CLICK BUTTONS TO SEE ALERT MESSAGES</h2>
+    <button type="button" onclick="sclick()">Click Me</button>
+     <button type="button" onclick="wclick()">Warn</button> 
+      <button type="button" onclick="iclick()">Success</button> 
+       <button type="button" onclick="eclick()">Error</button> 
+        <button type="button" onclick="cclick()">Confirm</button> 
+
+    <script>
+        function sclick(){
+         alert("This is a simple alert..");
+        }
+        
+        function wclick(){
+            alert("⚠️Warning! Something went wrong!!");
+        }
+
+        function iclick(){
+            alert("Success! Your form has been submited.");
+        }
+
+        function eclick(){
+            alert("Error!! Please try again..");
+        }
+
+        function cclick(){
+            let result= confirm("Are you sure?");
+            if(result){
+                alert("You clicked ok!");
+            }
+            else{
+                alert("You clicked cancel!");
+            }
+        }
+
+    </script>
+</body>
+</html>
