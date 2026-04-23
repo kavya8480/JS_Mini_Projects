@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toaster</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+
+  .parent {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+  }
+
+  /* Position */
+  .right { right: 20px; }
+  .left { left: 20px; }
+  .top { top: 5px; }
+  .bottom { bottom: 10px; }
+
+  /* Toast */
+  .toast {
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    animation: fadeIn 0.3s ease;
+  }
+
+  /* Themes */
+  .dark {
+    background-color: #1f2937;
+    color: white;
+  }
+
+  .light {
+    background-color: #f3f4f6;
+    color: black;
+  }
+
+  .center {
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+  }
+
+  /* Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+</head>
+<body>
+
+<div class="parent"></div>
+
+<script>
+function createToaster(config){
+
+  const parent = document.querySelector(".parent");
+
+  // Set position
+ if(config.position === "center"){
+    parent.classList.toggle("center");
+  } else {
+    parent.classList.toggle(
+      config.positionX === "center" ? "center" : "left",
+      config.positionY === "bottom" ? "bottom" : "top"
+    );
+  }
+
+  return function(message){
+    let div = document.createElement("div");
+    div.textContent = message;
+
+    div.className = "toast " + (config.theme === "dark" ? "dark" : "light");
+
+    parent.appendChild(div);
+
+    setTimeout(() => {
+      parent.removeChild(div);
+    }, config.duration * 1000);
+  };
+}
+
+let toaster = createToaster({
+  positionX: "center",
+  positionY: "top",
+  theme: "dark",
+  duration: 3
+});
+
+toaster("HELLO INSTAGRAM ✌️");
+
+setTimeout(() => {
+  toaster("KAVYA accepted your request.");
+}, 2000);
+
+setTimeout(() => {
+  toaster("Someone sent you a request.");
+}, 1500);
+</script>
+
+</body>
+</html>
